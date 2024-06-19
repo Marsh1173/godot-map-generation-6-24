@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://luawh8r87w32"]
+
+[ext_resource type="PackedScene" uid="uid://8f1qmssx7rd0" path="res://assets/tileMedium_forest.gltf.glb" id="1_vjr00"]
+[ext_resource type="PackedScene" uid="uid://ygbbb0bgyp8k" path="res://assets/tree_forest.gltf.glb" id="2_pahl8"]
+
+[node name="GrassModule" type="Node3D"]
+
+[node name="tileMedium_forest_gltf" parent="." instance=ExtResource("1_vjr00")]
+transform = Transform3D(4, 0, 0, 0, 1, 0, 0, 0, 4, 0, -1.5, 0)
+
+[node name="tree_forest_gltf" parent="." instance=ExtResource("2_pahl8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.78099, 0, -2.14677)
+
+[node name="tree_forest_gltf2" parent="." instance=ExtResource("2_pahl8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.56198, 0, 2.75416)
+
+[node name="tree_forest_gltf3" parent="." instance=ExtResource("2_pahl8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.19068, 0, 1.3754)

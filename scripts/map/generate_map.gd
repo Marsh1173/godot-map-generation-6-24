@@ -1,6 +1,5 @@
 extends Node3D
 
-enum MapModuleRotation {North, South, East, West}
 enum MapModule {Grass, Mountain, Pond}
 enum GridTerrain {Grass, Water}
 
@@ -49,8 +48,8 @@ func generate_map_modules(size: Vector2i) -> Array[Array]:
 		map.append(col)
 	return map
 	
-func get_random_map_module_rotation() -> MapModuleRotation:
-	return randi_range(0, MapModuleRotation.size() - 1)
+func get_random_map_module_rotation() -> UtilEnums.CardinalRotation:
+	return randi_range(0, UtilEnums.CardinalRotation.size() - 1)
 	
 func get_random_map_module() -> MapModule:
 	return randi_range(0, MapModule.size() -1)
@@ -64,13 +63,13 @@ func get_module_scene(module: MapModule):
 		MapModule.Mountain:
 			return mountain_module_scene
 
-func get_module_rotation(rotation: MapModuleRotation):
+func get_module_rotation(rotation: UtilEnums.CardinalRotation):
 	match rotation:
-		MapModuleRotation.North:
+		UtilEnums.CardinalRotation.North:
 			return 0
-		MapModuleRotation.West:
+		UtilEnums.CardinalRotation.West:
 			return PI / 2
-		MapModuleRotation.South:
+		UtilEnums.CardinalRotation.South:
 			return PI
-		MapModuleRotation.East:
+		UtilEnums.CardinalRotation.East:
 			return PI * 3 / 2

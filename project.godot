@@ -14,3 +14,7 @@ config/name="isometric map generator"
 run/main_scene="res://Main.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+UtilEnums="*res://scripts/util_enums.gd"

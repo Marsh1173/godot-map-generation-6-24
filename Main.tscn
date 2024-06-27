@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://b1yrg7vjufelx"]
+[gd_scene load_steps=6 format=3 uid="uid://b1yrg7vjufelx"]
 
 [ext_resource type="Script" path="res://scripts/map/generate_map.gd" id="1_yc482"]
+[ext_resource type="Script" path="res://scripts/map/map_grid.gd" id="2_u6npk"]
 
 [sub_resource type="Environment" id="Environment_myvd2"]
 background_mode = 1
@@ -38,7 +39,7 @@ var _direction = Vector3(0.0, 0.0, 0.0)
 var _velocity = Vector3(0.0, 0.0, 0.0)
 var _acceleration = 30
 var _deceleration = -10
-var _vel_multiplier = 6
+var _vel_multiplier = 10
 
 # Keyboard state
 var _w = false
@@ -132,6 +133,9 @@ func _update_mouselook():
 		rotate_object_local(Vector3(1,0,0), deg_to_rad(-pitch))
 "
 
+[sub_resource type="NavigationMesh" id="NavigationMesh_ostge"]
+vertices_per_polygon = 4.0
+
 [node name="Game" type="Node3D"]
 script = ExtResource("1_yc482")
 
@@ -141,3 +145,16 @@ environment = SubResource("Environment_myvd2")
 fov = 79.6308
 script = SubResource("GDScript_4pqxg")
 sensitivity = 0.3
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.688355, 0.569257, 0.449572, 0, -0.619779, 0.784776, 0.725374, -0.540204, -0.426628, 0, 0, 0)
+light_energy = 0.5
+shadow_enabled = true
+directional_shadow_mode = 0
+sky_mode = 1
+
+[node name="Node3D" type="Node3D" parent="."]
+script = ExtResource("2_u6npk")
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="Node3D"]
+navigation_mesh = SubResource("NavigationMesh_ostge")

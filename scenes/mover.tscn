@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://6cl58twywcdh"]
+
+[ext_resource type="Script" path="res://scenes/mover.gd" id="1_uv775"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_bf1oe"]
+
+[node name="Mover" type="CharacterBody3D"]
+script = ExtResource("1_uv775")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+debug_enabled = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_bf1oe")

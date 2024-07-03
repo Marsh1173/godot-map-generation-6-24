@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://diu0xtq4evdmc"]
+
+[ext_resource type="PackedScene" uid="uid://c2cwbl533m2jm" path="res://assets/KeyKit/tileMedium_teamBlue.gltf.glb" id="1_3l4yg"]
+
+[node name="GrassModule" type="Node3D"]
+
+[node name="tileMedium_teamBlue_gltf" parent="." instance=ExtResource("1_3l4yg")]
+transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 0.5, -1.5, 0.5)

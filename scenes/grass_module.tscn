@@ -1,18 +1,29 @@
-[gd_scene load_steps=3 format=3 uid="uid://luawh8r87w32"]
+[gd_scene load_steps=4 format=3 uid="uid://luawh8r87w32"]
 
-[ext_resource type="PackedScene" uid="uid://8f1qmssx7rd0" path="res://assets/tileMedium_forest.gltf.glb" id="1_vjr00"]
-[ext_resource type="PackedScene" uid="uid://ygbbb0bgyp8k" path="res://assets/tree_forest.gltf.glb" id="2_pahl8"]
+[ext_resource type="PackedScene" uid="uid://8f1qmssx7rd0" path="res://assets/KeyKit/tileMedium_forest.gltf.glb" id="1_5734b"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xhu4x"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_y87yb"]
+vertices = PackedVector3Array(0, 0.02, 0, 0, 0.02, 1, 1, 0.02, 1, 1, 0.02, 0)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+geometry_parsed_geometry_type = 1
+cell_size = 0.1
+cell_height = 0.01
+agent_height = 0.0
+agent_radius = 0.0
+agent_max_climb = 0.0
 
 [node name="GrassModule" type="Node3D"]
 
-[node name="tileMedium_forest_gltf" parent="." instance=ExtResource("1_vjr00")]
-transform = Transform3D(4, 0, 0, 0, 1, 0, 0, 0, 4, 0, -1.5, 0)
+[node name="tileMedium_forest_gltf" parent="." instance=ExtResource("1_5734b")]
+transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 0.5, -1.5, 0.5)
 
-[node name="tree_forest_gltf" parent="." instance=ExtResource("2_pahl8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.78099, 0, -2.14677)
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
 
-[node name="tree_forest_gltf2" parent="." instance=ExtResource("2_pahl8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.56198, 0, 2.75416)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -0.5, 0.5)
+shape = SubResource("BoxShape3D_xhu4x")
 
-[node name="tree_forest_gltf3" parent="." instance=ExtResource("2_pahl8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.19068, 0, 1.3754)
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_y87yb")

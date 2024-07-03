@@ -1,6 +1,14 @@
+extends Node
 class_name MapGrid
 
-extends Node
+var generator = MapGenerator.new()
+
+const map_size := Vector2i(3, 3)
+
+func _ready():
+	var blocks = generator.generate_map(map_size)
+	for block in blocks:
+		add_child(block)
 
 #var size: Vector2
 #

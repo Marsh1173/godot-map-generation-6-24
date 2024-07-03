@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://ryp2hdqx0wtg"]
+
+[ext_resource type="ArrayMesh" uid="uid://hh2564lfirss" path="res://assets/Personal/cliff.obj" id="1_4np5x"]
+[ext_resource type="ArrayMesh" uid="uid://dah8fco46clgy" path="res://assets/Personal/cliff_corner_in.obj" id="2_1f4te"]
+[ext_resource type="ArrayMesh" uid="uid://dph1khknng3xw" path="res://assets/Personal/cliff_corner_out.obj" id="3_cyxxe"]
+[ext_resource type="ArrayMesh" uid="uid://ctl8jjm35fqxa" path="res://assets/Personal/grass.obj" id="4_h4g88"]
+
+[node name="GridMapExport" type="Node3D"]
+
+[node name="Cliff" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = ExtResource("1_4np5x")
+
+[node name="CliffCornerIn" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = ExtResource("2_1f4te")
+
+[node name="CliffCornerOut" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = ExtResource("3_cyxxe")
+
+[node name="Grass" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = ExtResource("4_h4g88")
